@@ -20,7 +20,7 @@ import com.moose.micompose.theme.iconOpacity
 import com.moose.micompose.theme.width
 
 @Composable
-fun NavBar(navState: MutableState<NavState>, state: TransitionState, activity: MutableState<String>){
+fun NavBar(navState: MutableState<NavState>, state: TransitionState, activity: MutableState<BodyState>){
     Row(
         modifier = Modifier.size(state[width], 60.dp)
             .background(color = MaterialTheme.colors.primary, shape = MaterialTheme.shapes.medium),
@@ -32,13 +32,13 @@ fun NavBar(navState: MutableState<NavState>, state: TransitionState, activity: M
 }
 
 @Composable
-fun NavBarContent(navState: MutableState<NavState>, state: TransitionState, activity: MutableState<String>){
+fun NavBarContent(navState: MutableState<NavState>, state: TransitionState, activity: MutableState<BodyState>){
     if (navState.value == NavState.OPEN){
             Icon(
                 asset = vectorResource(id = R.drawable.ic_home),
                 modifier = Modifier.size(24.dp).drawOpacity(state[iconOpacity])
                     .clickable(onClick = {
-                        activity.value = "Home Activity"
+                        activity.value = BodyState.HOME
                         navState.value = if (navState.value == NavState.OPEN) NavState.CLOSED else NavState.OPEN
                 }),
                 tint = MaterialTheme.colors.onPrimary
@@ -47,7 +47,7 @@ fun NavBarContent(navState: MutableState<NavState>, state: TransitionState, acti
             asset = vectorResource(id = R.drawable.ic_location),
             modifier = Modifier.size(24.dp).drawOpacity(state[iconOpacity])
                 .clickable(onClick = {
-                    activity.value = "Location Activity"
+                    activity.value = BodyState.LOCATION
                     navState.value = if (navState.value == NavState.OPEN) NavState.CLOSED else NavState.OPEN
                 }),
             tint = MaterialTheme.colors.onPrimary
@@ -56,7 +56,7 @@ fun NavBarContent(navState: MutableState<NavState>, state: TransitionState, acti
             asset = vectorResource(id = R.drawable.ic_favorites),
             modifier = Modifier.size(24.dp).drawOpacity(state[iconOpacity])
                 .clickable(onClick = {
-                    activity.value = "Favorites Activity"
+                    activity.value = BodyState.FAVORITES
                     navState.value = if (navState.value == NavState.OPEN) NavState.CLOSED else NavState.OPEN
                 }),
             tint = MaterialTheme.colors.onPrimary
@@ -65,7 +65,7 @@ fun NavBarContent(navState: MutableState<NavState>, state: TransitionState, acti
             asset = vectorResource(id = R.drawable.ic_settings),
             modifier = Modifier.size(24.dp).drawOpacity(state[iconOpacity])
                 .clickable(onClick = {
-                    activity.value = "Settings Activity"
+                    activity.value = BodyState.SETTINGS
                     navState.value = if (navState.value == NavState.OPEN) NavState.CLOSED else NavState.OPEN
                 }),
             tint = MaterialTheme.colors.onPrimary

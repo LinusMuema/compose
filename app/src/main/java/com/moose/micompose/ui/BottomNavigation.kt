@@ -13,7 +13,7 @@ import com.moose.micompose.theme.iconOpacity
 enum class NavState { OPEN, CLOSED }
 
 @Composable
-fun BottomNavigation(width: Int, activity: MutableState<String>) {
+fun BottomNavigation(width: Int, activity: MutableState<BodyState>) {
     val navState = remember { mutableStateOf(NavState.OPEN)}
     val definition = transitionDefinition<NavState> {
         state(NavState.OPEN){
