@@ -14,7 +14,7 @@ val typography = Typography(
         h3 = TextStyle(
                 fontFamily = nunito,
                 fontWeight = FontWeight.Bold,
-                fontSize = 16.sp
+                fontSize = 20.sp
         ),
         h4 = TextStyle(
                 fontFamily = nunito,

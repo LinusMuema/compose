@@ -14,7 +14,7 @@ enum class NavState { OPEN, CLOSED }
 
 @Composable
 fun BottomNavigation(width: Int, activity: MutableState<BodyState>) {
-    val navState = remember { mutableStateOf(NavState.OPEN)}
+    val navState = remember { mutableStateOf(NavState.CLOSED)}
     val definition = transitionDefinition<NavState> {
         state(NavState.OPEN){
             this[com.moose.micompose.theme.width] = 60.dp

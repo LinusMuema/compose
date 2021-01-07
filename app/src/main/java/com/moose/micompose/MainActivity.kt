@@ -3,12 +3,12 @@ package com.moose.micompose
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.FabPosition
-import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.unit.dp
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         width = resources.displayMetrics.run { widthPixels / density }.toInt()
         setContent {
-            AppTheme {
+            AppTheme() {
                 Content()
             }
         }
@@ -34,11 +34,12 @@ class MainActivity : AppCompatActivity() {
     @Composable
     fun Content() {
         val activity = remember { mutableStateOf(BodyState.HOME) }
-        Scaffold(
-            bodyContent = { BodyContent(activity) },
-            floatingActionButton = { BottomNavigation (width = width, activity = activity) },
-            floatingActionButtonPosition = FabPosition.End
-        )
+        Box(modifier = Modifier.fillMaxSize()){
+            BodyContent(activity)
+            Box(modifier = Modifier.align(Alignment.BottomEnd).padding(10.dp)){
+                BottomNavigation (width = width, activity = activity)
+            }
+        }
     }
 
     @Preview("Content")

@@ -48,11 +48,14 @@ dependencies {
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.ui:ui-tooling:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-beta01'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-rc01'
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    // Coil Compose
-    implementation 'com.github.luca992:coil-composable:0.3.2'
+    // Glide compose
+    implementation 'com.github.mvarnagiris:compose-glide-image:0.4.1'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 }
