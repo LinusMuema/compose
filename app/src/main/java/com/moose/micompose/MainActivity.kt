@@ -12,7 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.unit.dp
-import androidx.core.view.WindowCompat
+import androidx.ui.tooling.preview.Preview
 import com.moose.micompose.theme.AppTheme
 import com.moose.micompose.ui.BodyContent
 import com.moose.micompose.ui.BodyState
@@ -23,13 +23,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // This app draws behind the system bars, so we want to handle fitting system windows
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-
         width = resources.displayMetrics.run { widthPixels / density }.toInt()
         setContent {
-            AppTheme {
+            AppTheme() {
                 Content()
             }
         }
@@ -44,5 +40,11 @@ class MainActivity : AppCompatActivity() {
                 BottomNavigation (width = width, activity = activity)
             }
         }
+    }
+
+    @Preview("Content")
+    @Composable
+    fun preview() {
+        Content()
     }
 }
