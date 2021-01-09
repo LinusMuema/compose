@@ -14,7 +14,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MiCompose.NoActionBar">
+            android:theme="@style/Theme.MiCompose">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
