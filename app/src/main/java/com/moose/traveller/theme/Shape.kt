@@ -1,4 +1,4 @@
-package com.moose.micompose.ui
+package com.moose.traveller.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

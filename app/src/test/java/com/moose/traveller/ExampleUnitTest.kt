@@ -1,4 +1,4 @@
-package com.moose.micompose
+package com.moose.traveller
 
 import org.junit.Test
 
