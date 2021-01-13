@@ -16,16 +16,16 @@ val typography = Typography(
     body1 = TextStyle(
         fontFamily = roboto,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 20.sp
     ),
     h3 = TextStyle(
         fontFamily = roboto,
         fontWeight = FontWeight.Bold,
-        fontSize = 24.sp
+        fontSize = 40.sp
     ),
     caption = TextStyle(
         fontFamily = roboto,
         fontWeight = FontWeight.Light,
-        fontSize = 16.sp
+        fontSize = 24.sp
     )
 )
