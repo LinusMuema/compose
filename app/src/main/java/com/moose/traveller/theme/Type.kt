@@ -23,6 +23,11 @@ val typography = Typography(
         fontWeight = FontWeight.Bold,
         fontSize = 40.sp
     ),
+    h5 = TextStyle(
+        fontFamily = roboto,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
+    ),
     caption = TextStyle(
         fontFamily = roboto,
         fontWeight = FontWeight.Light,
