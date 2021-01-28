@@ -1,5 +1,6 @@
 package com.moose.traveller.theme
 
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.*
@@ -18,6 +19,11 @@ val typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 20.sp
     ),
+    body2 = TextStyle(
+        fontFamily = roboto,
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp
+    ),
     h3 = TextStyle(
         fontFamily = roboto,
         fontWeight = FontWeight.Bold,
@@ -28,9 +34,14 @@ val typography = Typography(
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp
     ),
+    subtitle1 = TextStyle(
+        fontFamily = roboto,
+        fontWeight = FontWeight.Light,
+        fontSize = 20.sp
+    ),
     caption = TextStyle(
         fontFamily = roboto,
         fontWeight = FontWeight.Light,
-        fontSize = 24.sp
+        fontSize = 15.sp
     )
 )

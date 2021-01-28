@@ -2,5 +2,11 @@
     <style name="Theme.Traveller" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:dialogTheme">@style/Theme.DialogFullScreen</item>
+    </style>
+
+    <style name="Theme.DialogFullScreen" parent="@style/ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
     </style>
 </resources>
