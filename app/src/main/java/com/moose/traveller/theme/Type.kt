@@ -39,6 +39,11 @@ val typography = Typography(
         fontWeight = FontWeight.Light,
         fontSize = 20.sp
     ),
+    subtitle2 = TextStyle(
+        fontFamily = roboto,
+        fontWeight = FontWeight.Light,
+        fontSize = 15.sp
+    ),
     caption = TextStyle(
         fontFamily = roboto,
         fontWeight = FontWeight.Light,

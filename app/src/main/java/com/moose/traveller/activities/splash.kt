@@ -35,39 +35,19 @@ fun Splash() {
     AuthDialog(type = dialogType.value, openDialog = openDialog)
 
     Box(modifier = Modifier.fillMaxSize()) {
-        Image(
-            imageResource(R.drawable.splash), modifier = Modifier.fillMaxSize(), contentScale = Crop
-        )
-        Column(modifier = Modifier
-            .align(TopStart)
-            .padding(top = 65.dp, start = 25.dp)) {
-            Text(
-                "Explore",
-                color = Black,
-                style = typography.h3,
-                modifier = Modifier.padding(bottom = 2.dp)
-            )
-            Text(
-                "new amazing countries",
-                color = Black,
-                style = typography.subtitle1
-            )
+        Image(imageResource(R.drawable.splash), modifier = Modifier.fillMaxSize(), contentScale = Crop)
+
+        Column(modifier = Modifier.align(TopStart).padding(top = 65.dp, start = 25.dp)) {
+            Text("Explore", color = Black, style = typography.h3, modifier = Modifier.padding(bottom = 2.dp))
+            Text("new amazing countries", color = Black, style = typography.subtitle1)
         }
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .align(BottomCenter)
-                .padding(vertical = 10.dp),
-            horizontalArrangement = SpaceEvenly
-        ) {
+        Row(modifier = Modifier.fillMaxWidth().align(BottomCenter).padding(vertical = 10.dp), horizontalArrangement = SpaceEvenly) {
             SplashButton(text = "Log In", modifier = Modifier.weight(1f)){
                 dialogType.value = AuthType.LOGIN
                 openDialog.value = true
             }
-
             Spacer(modifier = Modifier)
-
             SplashButton(text = "Sign Up", modifier = Modifier.weight(1f)){
                 dialogType.value = AuthType.SIGNUP
                 openDialog.value = true
