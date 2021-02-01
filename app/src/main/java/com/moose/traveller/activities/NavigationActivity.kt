@@ -2,7 +2,11 @@ package com.moose.traveller.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.compose.material.Scaffold
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.setContent
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -15,12 +19,25 @@ class NavigationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.hideBottomBar()
         setContent {
-            val controller = rememberNavController()
+            val controller: NavHostController = rememberNavController()
             TravellerTheme {
-                NavHost(navController = controller, startDestination = "home"){
-                    composable("home"){ Home(controller = controller) }
-                }
+                Scaffold(
+                    bodyContent = { Body(controller = controller) },
+                    bottomBar = { NavBar(controller = controller) }
+                )
             }
         }
     }
+}
+
+@Composable
+fun Body(controller: NavHostController){
+    NavHost(navController = controller, startDestination = "home"){
+        composable("home"){ Home(controller = controller) }
+    }
+}
+
+@Composable
+fun NavBar(controller: NavHostController){
+
 }
