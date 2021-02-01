@@ -1,8 +1,8 @@
 package com.moose.traveller.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
@@ -12,17 +12,14 @@ import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.text.input.TextFieldValue
@@ -33,7 +30,7 @@ import java.util.*
 enum class AuthType { SIGNUP, LOGIN }
 
 @Composable
-fun AuthDialog(type: AuthType, openDialog: MutableState<Boolean>){
+fun AuthDialog(type: AuthType, openDialog: MutableState<Boolean>, auth: MutableState<Boolean>){
 
     val title = type.toString().toLowerCase(Locale.ROOT).capitalize(Locale.ROOT)
     var buttonText = "Log In"
@@ -44,14 +41,10 @@ fun AuthDialog(type: AuthType, openDialog: MutableState<Boolean>){
 
     if (openDialog.value){
         Dialog(onDismissRequest = { openDialog.value = false }) {
-            Column(modifier = Modifier
-                .fillMaxWidth()
-                .background(Transparent)
-                .padding(20.dp)) {
-                Column(modifier = Modifier
-                    .clip(shape = shapes.large)
-                    .fillMaxWidth()
+            Column(modifier = Modifier.fillMaxWidth().background(Transparent).padding(20.dp)) {
+                Column(modifier = Modifier.clip(shape = shapes.large).fillMaxWidth()
                     .background(White), horizontalAlignment = CenterHorizontally) {
+
                     Text(text = title, color = colors.onSurface, style = typography.h5, modifier = Modifier.padding(10.dp))
 
                     Input(placeholder = "Username", text = username, icon = Icons.Filled.Person)
@@ -63,10 +56,10 @@ fun AuthDialog(type: AuthType, openDialog: MutableState<Boolean>){
                         Input(placeholder = "E-mail", text = email, icon = Icons.Filled.Email)
                     }
 
-                    AuthButton(text = buttonText)
+                    AuthButton(text = buttonText){ auth.value = true }
                 }
                 AuthDivider()
-                SocialButton()
+                SocialButton { auth.value = true }
             }
         }
     }
