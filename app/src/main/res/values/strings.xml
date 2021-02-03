@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Traveller</string>
+    <string name="scotland">Scotland, the U.K.’s northernmost country, is a land of mountain wildernesses such as the Cairngorms and Northwest Highlands, interspersed with glacial glens (valleys) and lochs (lakes).</string>
+    <string name="new_zealand">Get ready for mammoth national parks, dynamic Māori culture, and world-class surfing and skiing. This decent nation is a place where you can relax and enjoy (rather than endure) your travels</string>
+    <string name="spain">Passionate, sophisticated and devoted to living the good life, Spain is both a stereotype come to life and a country more diverse than you ever imagined. Its diverse landscapes stir the soul</string>
+    <string name="germany">Prepare for a roller-coaster ride of feasts, treats and temptations experiencing Germany\'s soul-stirring scenery, spirit-lifting culture, big-city beauties, romantic palaces and half-timbered towns.</string>
 </resources>

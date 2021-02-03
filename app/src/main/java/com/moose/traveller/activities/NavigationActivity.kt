@@ -45,11 +45,11 @@ class NavigationActivity : AppCompatActivity() {
 @Composable
 fun Body(controller: NavHostController){
     NavHost(navController = controller, startDestination = "home"){
-        composable("home"){ Home(controller = controller) }
-        composable("photos"){ Photos(controller = controller) }
-        composable("explore"){ Explore(controller = controller) }
-        composable("activity"){ Activity(controller = controller) }
-        composable("profile"){ Profile(controller = controller) }
+        composable("home"){ Home() }
+        composable("photos"){ Photos() }
+        composable("explore"){ Explore() }
+        composable("activity"){ Activity() }
+        composable("profile"){ Profile() }
     }
 }
 
