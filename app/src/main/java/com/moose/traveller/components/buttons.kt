@@ -23,7 +23,7 @@ import com.moose.traveller.theme.red400
 @Composable
 fun SplashButton(text: String, modifier: Modifier = Modifier, click: () -> Unit){
     val background = Black.copy(0.7f)
-    Box(modifier = modifier.padding(10.dp).clip(shapes.large).background(background)
+    Box(modifier = modifier.padding(10.dp).clip(shapes.medium).background(background)
         .clickable(onClick = { click() })) {
 
         Text(text = text, style = typography.h5, color = White, modifier = Modifier
@@ -36,7 +36,7 @@ fun SplashButton(text: String, modifier: Modifier = Modifier, click: () -> Unit)
 @Composable
 fun AuthButton(text: String, click: () -> Unit){
     Button(
-        shape = shapes.large,
+        shape = shapes.medium,
         onClick = { click() },
         modifier = Modifier.fillMaxWidth().padding(20.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = red400)
@@ -49,7 +49,7 @@ fun AuthButton(text: String, click: () -> Unit){
 @Composable
 fun SocialButton(click: () -> Unit){
     Box(
-        modifier = Modifier.clip(shapes.large).fillMaxWidth()
+        modifier = Modifier.clip(shapes.medium).fillMaxWidth()
             .drawBehind(onDraw = {
                 drawRect(brush = Brush.horizontalGradient(
                     listOf(blue500, blue300), 0.0f, size.width)

@@ -42,7 +42,7 @@ fun AuthDialog(type: AuthType, openDialog: MutableState<Boolean>, auth: MutableS
     if (openDialog.value){
         Dialog(onDismissRequest = { openDialog.value = false }) {
             Column(modifier = Modifier.fillMaxWidth().background(Transparent).padding(20.dp)) {
-                Column(modifier = Modifier.clip(shape = shapes.large).fillMaxWidth()
+                Column(modifier = Modifier.clip(shape = shapes.medium).fillMaxWidth()
                     .background(White), horizontalAlignment = CenterHorizontally) {
 
                     Text(text = title, color = colors.onSurface, style = typography.h5, modifier = Modifier.padding(10.dp))

@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.ContentScale.Companion.Crop
+import androidx.compose.ui.layout.ContentScale.Companion.FillHeight
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -43,8 +44,8 @@ fun Home() {
             Box(modifier = Modifier.padding(vertical = 10.dp).weight(4f, fill = true)){
                 ScrollableRow(modifier = Modifier) {
                     countries.forEach {
-                        Box(modifier = Modifier.clip(shapes.large)){
-                            Image(imageResource(it.image), contentScale = Crop)
+                        Box(modifier = Modifier.padding(all = 10.dp).clip(shapes.large)){
+                            Image(imageResource(it.image), contentScale = FillHeight)
                         }
                     }
                 }
