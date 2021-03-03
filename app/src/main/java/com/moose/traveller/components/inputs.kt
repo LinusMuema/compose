@@ -33,11 +33,8 @@ fun Input(placeholder: String, text: MutableState<TextFieldValue>, icon: ImageVe
         TextField(
             value = text.value,
             textStyle = TextStyle(color = Color.Black),
-            leadingIcon = { Icon(imageVector = icon) },
+            leadingIcon = { Icon(imageVector = icon, contentDescription = null) },
             placeholder = { Text(text = placeholder, style = typography.body2) },
-            backgroundColor = colors.background,
-            activeColor = Color.Transparent,
-            inactiveColor = grey200,
             onValueChange = { text.value = it }
         )
     }

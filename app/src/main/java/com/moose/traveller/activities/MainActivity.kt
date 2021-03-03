@@ -1,8 +1,8 @@
 package com.moose.traveller.activities
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.platform.setContent
 import com.moose.traveller.screens.Splash
 import com.moose.traveller.theme.TravellerTheme
 import com.moose.traveller.utils.hideBottomBar

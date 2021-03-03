@@ -2,23 +2,26 @@ package com.moose.traveller.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme.shapes
 import androidx.compose.material.MaterialTheme.typography
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.White
-import androidx.compose.ui.graphics.HorizontalGradient
 import androidx.compose.ui.unit.dp
 import com.moose.traveller.theme.blue300
 import com.moose.traveller.theme.blue500
 import com.moose.traveller.theme.red400
+import com.moose.traveller.utils.horizontalGradient
 
 @Composable
 fun SplashButton(text: String, modifier: Modifier = Modifier, click: () -> Unit){
@@ -48,13 +51,10 @@ fun AuthButton(text: String, click: () -> Unit){
 
 @Composable
 fun SocialButton(click: () -> Unit){
+    val colors =  listOf(blue500, blue300)
     Box(
         modifier = Modifier.clip(shapes.medium).fillMaxWidth()
-            .drawBehind(onDraw = {
-                drawRect(brush = Brush.horizontalGradient(
-                    listOf(blue500, blue300), 0.0f, size.width)
-                )
-            })
+            .drawBehind(onDraw = { horizontalGradient(colors) })
             .clickable(onClick = { click() })
     ) {
         Text(text = "Continue with Facebook", style = typography.h5, color = White, modifier = Modifier

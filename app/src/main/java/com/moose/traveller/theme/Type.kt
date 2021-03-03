@@ -7,10 +7,10 @@ import androidx.compose.ui.text.font.*
 import androidx.compose.ui.unit.sp
 import com.moose.traveller.R
 
-val roboto = fontFamily(
-    font(R.font.roboto_light, FontWeight.Light),
-    font(R.font.roboto, FontWeight.Normal),
-    font(R.font.roboto_bold, FontWeight.Bold)
+val roboto = FontFamily(
+    Font(R.font.roboto_light, FontWeight.Light),
+    Font(R.font.roboto, FontWeight.Normal),
+    Font(R.font.roboto_bold, FontWeight.Bold)
 )
 
 val typography = Typography(

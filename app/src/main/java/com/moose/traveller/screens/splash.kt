@@ -11,8 +11,8 @@ import androidx.compose.ui.Alignment.Companion.BottomCenter
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.layout.ContentScale.Companion.Crop
-import androidx.compose.ui.platform.AmbientContext
-import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.moose.traveller.R
 import com.moose.traveller.activities.NavigationActivity
@@ -26,16 +26,24 @@ fun Splash() {
     val openDialog = remember { mutableStateOf(false) }
     val authSuccess = remember { mutableStateOf(false) }
     val dialogType = remember { mutableStateOf(AuthType.LOGIN) }
-    val context = AmbientContext.current
+    val context = LocalContext.current
     
     AuthDialog(type = dialogType.value, openDialog = openDialog, auth = authSuccess)
 
     Box(modifier = Modifier.fillMaxSize()) {
-        Image(imageResource(R.drawable.splash), modifier = Modifier.fillMaxSize(), contentScale = Crop)
+        Image(
+            painter = painterResource(id = R.drawable.splash),
+            modifier = Modifier.fillMaxSize(),
+            contentScale = Crop,
+            contentDescription = null
+        )
 
         Header(Black)
 
-        Row(modifier = Modifier.fillMaxWidth().align(BottomCenter).padding(vertical = 10.dp), horizontalArrangement = SpaceEvenly) {
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .align(BottomCenter)
+            .padding(vertical = 10.dp), horizontalArrangement = SpaceEvenly) {
             SplashButton(text = "Log In", modifier = Modifier.weight(1f)){
                 dialogType.value = AuthType.LOGIN
                 openDialog.value = true

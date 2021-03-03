@@ -3,19 +3,30 @@ package com.moose.traveller.components
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.moose.traveller.theme.grey500
 
 @Composable
 fun Header(textColor: Color){
     Box(modifier = Modifier.padding(top = 65.dp, start = 25.dp)) {
         Column {
-            Text("Explore", color = textColor, style = MaterialTheme.typography.h3, modifier = Modifier.padding(bottom = 2.dp))
-            Text("new amazing countries", color = textColor, style = MaterialTheme.typography.subtitle1)
+            Text("Explore", color = textColor, style = typography.h3, modifier = Modifier.padding(bottom = 2.dp))
+            Text("new amazing countries", color = textColor, style = typography.subtitle1)
+        }
+    }
+}
+
+@Composable
+fun CountryHeader(name: String, caption: String, modifier: Modifier){
+    Box(modifier = modifier.padding(all = 20.dp)) {
+        Column {
+            Text(name, color = Color.White, style = typography.h5, modifier = Modifier.padding(bottom = 2.dp))
+            Text(caption, color = Color.White, style = typography.subtitle2)
         }
     }
 }
