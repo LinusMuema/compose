@@ -23,40 +23,4 @@ import com.moose.traveller.components.SplashButton
 
 @Composable
 fun Splash() {
-    val openDialog = remember { mutableStateOf(false) }
-    val authSuccess = remember { mutableStateOf(false) }
-    val dialogType = remember { mutableStateOf(AuthType.LOGIN) }
-    val context = LocalContext.current
-    
-    AuthDialog(type = dialogType.value, openDialog = openDialog, auth = authSuccess)
-
-    Box(modifier = Modifier.fillMaxSize()) {
-        Image(
-            painter = painterResource(id = R.drawable.splash),
-            modifier = Modifier.fillMaxSize(),
-            contentScale = Crop,
-            contentDescription = null
-        )
-
-        Header(Black)
-
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .align(BottomCenter)
-            .padding(vertical = 10.dp), horizontalArrangement = SpaceEvenly) {
-            SplashButton(text = "Log In", modifier = Modifier.weight(1f)){
-                dialogType.value = AuthType.LOGIN
-                openDialog.value = true
-            }
-            Spacer(modifier = Modifier)
-            SplashButton(text = "Sign Up", modifier = Modifier.weight(1f)){
-                dialogType.value = AuthType.SIGNUP
-                openDialog.value = true
-            }
-        }
-    }
-
-    if (authSuccess.value){
-        context.startActivity(Intent(context, NavigationActivity::class.java))
-    }
 }

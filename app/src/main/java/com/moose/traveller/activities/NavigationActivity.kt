@@ -10,17 +10,15 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.*
 import com.moose.traveller.components.NavIcon
+import com.moose.traveller.components.currentRoute
+import com.moose.traveller.components.getNavItems
 import com.moose.traveller.screens.*
 import com.moose.traveller.theme.TravellerTheme
 import com.moose.traveller.theme.grey300
-import com.moose.traveller.utils.currentRoute
-import com.moose.traveller.utils.getNavItems
-import com.moose.traveller.utils.hideBottomBar
 
 class NavigationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.hideBottomBar()
         setContent {
             val controller: NavHostController = rememberNavController()
             TravellerTheme {
@@ -59,10 +57,9 @@ fun NavBar(controller: NavHostController){
                 selectedContentColor = selected,
                 unselectedContentColor = grey300,
                 onClick = { controller.navigate(it.route){
-                    popUpTo("home"){
-                        inclusive = true
-                    }
-                } }
+                    popUpTo = controller.graph.startDestination
+                    launchSingleTop = true
+                }}
             )
         }
     }
