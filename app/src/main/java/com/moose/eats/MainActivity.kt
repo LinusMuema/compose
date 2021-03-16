@@ -7,10 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,7 +46,10 @@ fun Screen(){
         LazyColumn {
             items(data){ food ->
                 Card(
-                    modifier = Modifier.fillMaxWidth().height(120.dp).padding(10.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(120.dp)
+                        .padding(10.dp),
                     backgroundColor = MaterialTheme.colors.primary
                 ) {
                     Row {
@@ -58,11 +58,16 @@ fun Screen(){
                             contentDescription = food.name,
                             modifier = Modifier.clip(MaterialTheme.shapes.medium)
                         )
-                        Column {
+                        Column(modifier = Modifier.padding(10.dp).fillMaxSize()) {
                             Text(
                                 text = food.name,
-                                style = MaterialTheme.typography.subtitle2,
-                                modifier = Modifier.padding(10.dp)
+                                color = MaterialTheme.colors.onSurface,
+                                style = MaterialTheme.typography.body2,
+                            )
+                            Text(
+                                text = "Price: €${food.price}",
+                                color = MaterialTheme.colors.onSurface,
+                                style = MaterialTheme.typography.body2,
                             )
                         }
                     }
