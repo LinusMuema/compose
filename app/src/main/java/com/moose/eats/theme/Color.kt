@@ -10,7 +10,7 @@ val yellow200 = Color(0xffF1C40F)
 // Light theme colors
 val white100 = Color(0xffF0F3F4)
 val white300 = Color(0xffD0D3D4)
-val light = lightColors(primary = white300,background = white100)
+val light = lightColors(primary = white100,background = white300)
 
 // Dark theme colors
 val black100 = Color(0xff566573)
