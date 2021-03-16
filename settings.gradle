@@ -1,2 +1,2 @@
-rootProject.name = "Mi Compose"
+rootProject.name = "Eats"
 include ':app'

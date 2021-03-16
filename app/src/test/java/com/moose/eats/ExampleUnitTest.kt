@@ -1,4 +1,4 @@
-package com.moose.traveller
+package com.moose.eats
 
 import org.junit.Test
 
