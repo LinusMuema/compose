@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Color
 
 // Common colors
 val yellow200 = Color(0xffF1C40F)
+val grey200 = Color(0xff696969)
 
 // Light theme colors
 val white100 = Color(0xffF0F3F4)

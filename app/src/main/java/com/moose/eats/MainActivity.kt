@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.moose.eats.components.Rating
 import com.moose.eats.data.Data
 import com.moose.eats.data.Food
 import com.moose.eats.theme.EatsTheme
@@ -46,10 +47,7 @@ fun Screen(){
         LazyColumn {
             items(data){ food ->
                 Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(120.dp)
-                        .padding(10.dp),
+                    modifier = Modifier.fillMaxWidth().height(120.dp).padding(vertical = 10.dp, horizontal = 20.dp),
                     backgroundColor = MaterialTheme.colors.primary
                 ) {
                     Row {
@@ -58,17 +56,26 @@ fun Screen(){
                             contentDescription = food.name,
                             modifier = Modifier.clip(MaterialTheme.shapes.medium)
                         )
-                        Column(modifier = Modifier.padding(10.dp).fillMaxSize()) {
-                            Text(
-                                text = food.name,
-                                color = MaterialTheme.colors.onSurface,
-                                style = MaterialTheme.typography.body2,
-                            )
-                            Text(
-                                text = "Price: €${food.price}",
-                                color = MaterialTheme.colors.onSurface,
-                                style = MaterialTheme.typography.body2,
-                            )
+                        Column(
+                            modifier = Modifier.padding(10.dp).fillMaxHeight(),
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            Column(modifier = Modifier.fillMaxHeight(fraction = 0.5f)) {
+                                Text(
+                                    text = food.name,
+                                    color = MaterialTheme.colors.onSurface,
+                                    style = MaterialTheme.typography.body2,
+                                )
+                                Rating(rating = food.rating)
+                            }
+                            Box(modifier = Modifier.fillMaxHeight(fraction = 0.5f)){
+                                Text(
+                                    text = "Price: €${food.price}",
+                                    color = MaterialTheme.colors.onSurface,
+                                    style = MaterialTheme.typography.body2,
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            }
                         }
                     }
                 }
