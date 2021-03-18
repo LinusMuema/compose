@@ -64,7 +64,7 @@ fun Screen(){
                                 Text(
                                     text = food.name,
                                     color = MaterialTheme.colors.onSurface,
-                                    style = MaterialTheme.typography.body2,
+                                    style = MaterialTheme.typography.h6,
                                 )
                                 Rating(rating = food.rating)
                             }
